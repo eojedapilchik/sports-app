@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title','Perfil')
+@section('title','Leagues')
 
 @section('content')
     <main>
@@ -19,7 +19,7 @@
     </section>
     
      <div class="container">
-        <table class="table table-striped table-responsive table-hover">
+        <table class="table table-striped table-responsive table-hover data-rows">
             <thead class="table-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -29,13 +29,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($leagues as $league)
-                <tr>
-                    <th scope="row">{{$league["idLeague"]}}</th>
-                    <td>{{$league["strLeague"]}}</td>
-                    <td>{{$league["strSport"]}}</td>
-                    <td>{{$league["strLeagueAlternate"]}}</td>
-                </tr>
+                @foreach ($leagues as $league)        
+                    <tr onclick="window.location='{{route('index.teams',$league["idLeague"])}}';" >
+                        <td>{{$league["idLeague"]}}</td>
+                        <td>{{$league["strLeague"]}}</td>
+                        <td>{{$league["strSport"]}}</td>
+                        <td>{{$league["strLeagueAlternate"]}}</td>
+                    </tr>
+                
                 @endforeach
             </tbody>
         </table>

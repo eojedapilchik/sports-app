@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SportRetrievalController;
 use App\Http\Controllers\LeagueRetrievalController;
+use App\Http\Controllers\TeamRetrievalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use App\Http\Controllers\LeagueRetrievalController;
 */
 
 Route::get('/', [SportRetrievalController::class, 'index']);
-Route::get('/league/{sport}', [LeagueRetrievalController::class, 'indexBySport'])->where(['id' => '[0-9]+'])->name('show.league');
+Route::get('/league/{sport}', [LeagueRetrievalController::class, 'indexBySport'])->name('show.league');
+Route::get('/league/{league_id}/teams', [TeamRetrievalController::class, 'indexByLeague'])->where(['league_id' => '[0-9]+'])->name('index.teams');

@@ -3,8 +3,9 @@
 namespace App\Repositories;
 
 use App\Repositories\SportRepositoryInterface;
+use GuzzleHttp\Client;
 
-class LeagueRepository extends AbstractRepository implements TeamRepositoryInterface
+class TeamRepository extends AbstractRepository implements TeamRepositoryInterface
 {
 
     public function __construct()
@@ -15,6 +16,13 @@ class LeagueRepository extends AbstractRepository implements TeamRepositoryInter
         ]);
     }
 
+    public function retreiveAllByLeague($league_id)
+    {
+        $response = $this->client->request('GET', 'lookup_all_teams.php?id='.$league_id);
+        $teams = json_decode($response->getBody()->getContents(),true)["teams"];
+        return $teams;
+    }
+
     public function findByTeamId($id)
     {
         
@@ -23,19 +31,6 @@ class LeagueRepository extends AbstractRepository implements TeamRepositoryInter
         $filtered = array_filter($leagues, function($league) use($id){
             if(isset($league)){
                 if($league['idLeague']== $id) return true;
-            }
-            return false;
-        });
-        return $filtered;
-    }
-
-    public function retreiveAllByLeague($league_id)
-    {
-        $response = $this->client->request('GET', 'lookup_all_teams.php?id='.$league_id);
-        $leagues = json_decode($response->getBody()->getContents(),true)["teams"];
-        $filtered = array_filter($leagues, function($league) use($field,$value){
-            if(isset($league)){
-                if($league[$field]== $value) return true;
             }
             return false;
         });
