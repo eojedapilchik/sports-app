@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use GuzzleHttp\Client;
 use App\Repositories\SportRepositoryInterface;
 
 class LeagueRepository extends AbstractRepository implements LeagueRepositoryInterface
@@ -12,9 +10,8 @@ class LeagueRepository extends AbstractRepository implements LeagueRepositoryInt
     public function retrieveAll()
     {
         //dd('from SportRepository');
-       $response=$this->client->request('GET', 'all_leagues.php');
-        return json_decode($response->getBody()->getContents(),true)["leagues"];
-        
+        $response=$this->client->request('GET', 'all_leagues.php');
+        return json_decode($response->getBody()->getContents(),true)["leagues"];    
     }
 
     public function findById($id)

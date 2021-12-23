@@ -2,8 +2,6 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-use GuzzleHttp\Client;
 use App\Repositories\SportRepositoryInterface;
 use App\Repositories\AbstractRepository;
 

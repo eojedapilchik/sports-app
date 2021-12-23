@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-interface LeagueRepositoryInterface extends RepositoryInterface
+interface LeagueRepositoryInterface
 {
     public function findByField($field,$value);
 }

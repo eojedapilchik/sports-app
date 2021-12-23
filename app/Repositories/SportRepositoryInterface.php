@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
-interface SportRepositoryInterface extends RepositoryInterface
+interface SportRepositoryInterface
 {
+    public function retrieveAll();
 }
