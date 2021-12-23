@@ -20,7 +20,6 @@ class TeamRetrievalController extends Controller
     public function indexByLeague($league_id)
     {
         $teams =$this->teamRepository->retreiveAllByLeague($league_id);
-        //dd($teams);
         return view('teams',['teams'=>$teams]);
     }
 }
