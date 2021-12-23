@@ -20,7 +20,7 @@ class LeagueRetrievalController extends Controller
     public function indexBySport($sport)
     {
         $league =$this->leagueRepository->findByField("strSport",$sport);
-        dd($league);
-        return view('welcome',['sports'=>$sports]);
+        //dd($league);
+        return view('league',['leagues'=>$league,'sport'=>$sport]);
     }
 }

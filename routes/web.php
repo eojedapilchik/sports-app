@@ -15,10 +15,5 @@ use App\Http\Controllers\LeagueRetrievalController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-//     // return ['value' => 'Alcides'];
-// });
-
 Route::get('/', [SportRetrievalController::class, 'index']);
 Route::get('/league/{sport}', [LeagueRetrievalController::class, 'indexBySport'])->where(['id' => '[0-9]+'])->name('show.league');
