@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SportRetrievalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-    // return ['value' => 'Alcides'];
-});
+// Route::get('/', function () {
+//     return view('welcome');
+//     // return ['value' => 'Alcides'];
+// });
+
+Route::get('/', [SportRetrievalController::class, 'index']);
