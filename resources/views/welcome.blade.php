@@ -88,14 +88,14 @@
         @foreach ($sports as $sport)
           <div class="col">
             <div class="card shadow-sm">
-              <img class="bd-placeholder-img card-img-top" width="80%" height="195" src={{$sport['strSportThumb']}} role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" alt={{$sport["strSport"]}}><title>{{$sport["strSport"]}}</title><rect width="100%" height="100%" fill="#55595c"/>
+              <a href={{$sport['idSport']}}><img class="bd-placeholder-img card-img-top" width="80%" height="195" src={{$sport['strSportThumb']}} role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false" alt={{$sport["strSport"]}}><title>{{$sport["strSport"]}}</title><rect width="100%" height="100%" fill="#55595c"/></a>
 
               <div class="card-body">
-                <p class="card-text">{{$sport['strSport']}}</p>
+                <a href={{$sport['idSport']}}><p class="card-text">{{$sport['strSport']}}</p></a>
                 <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
+                  <!-- <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
